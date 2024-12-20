@@ -1,3 +1,9 @@
+# Summary of test case selection
+We chose the test cases that achieved the decision coverage and MC/DC coverage in the test cases definition document because it was enough to have a coverage of 75% (28/36 * 100 = 77.78%).
+
+![image](https://github.com/user-attachments/assets/a5b92802-1f26-4865-a20e-b9c7e072549d)
+
+# Changes to fix errors
 ## before_patch0 -> before_patch1
 ### ActivityRecommendation.java changes:
 * In line 25, the condition `weather.getTemperature() > 25` was added to better fit the requirements and a test was failing for that.
