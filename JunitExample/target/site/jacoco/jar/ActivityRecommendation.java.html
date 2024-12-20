@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActivityRecommendation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JunitExample Maven Webapp</a> &gt; <a href="index.source.html" class="el_package">jar</a> &gt; <span class="el_source">ActivityRecommendation.java</span></div><h1>ActivityRecommendation.java</h1><pre class="source lang-java linenums">package jar;
+<span class="nc" id="L2">public class ActivityRecommendation {</span>
+
+	public static String recommendActivity(Weather weather, HealthStatus healthStatus,
+			SpaceConstraint spaceConstraint) {
+<span class="fc bfc" id="L6" title="All 4 branches covered.">		if (!healthStatus.isHealthy() || !healthStatus.hasValidVaccinationCard()) {</span>
+<span class="fc" id="L7">			return &quot;No activity recommended.&quot;;</span>
+		}
+
+<span class="fc bfc" id="L10" title="All 2 branches covered.">		if (weather.getTemperature() &lt; 0) {</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">			if (weather.getHumidity() &lt; 15) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">				if (weather.isPrecipitation()) {</span>
+<span class="fc" id="L13">					return &quot;Stay home.&quot;;</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">				} else if (spaceConstraint.isWithinCapacity()) {</span>
+<span class="fc" id="L15">					return &quot;Go skiing.&quot;;</span>
+				}
+			}
+<span class="fc bfc" id="L18" title="All 4 branches covered.">		} else if (weather.getTemperature() &lt; 15 &amp;&amp; !weather.isPrecipitation()) {</span>
+<span class="pc bpc" id="L19" title="1 of 2 branches missed.">			if (spaceConstraint.isWithinCapacity()) {</span>
+<span class="fc" id="L20">				return &quot;Go hiking.&quot;;</span>
+			}
+<span class="fc bfc" id="L22" title="All 6 branches covered.">		} else if (weather.getTemperature() &lt;= 25 &amp;&amp; !weather.isPrecipitation() &amp;&amp; !weather.isCloudy()</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">				&amp;&amp; weather.getHumidity() &gt; 60) {</span>
+<span class="fc" id="L24">			return &quot;Outdoor tourism.&quot;;</span>
+<span class="pc bpc" id="L25" title="1 of 8 branches missed.">		} else if (weather.getTemperature() &gt; 25 &amp;&amp; weather.getTemperature() &lt;= 35 &amp;&amp; !weather.isPrecipitation() &amp;&amp; spaceConstraint.isWithinCapacity()) {</span>
+<span class="fc" id="L26">			return &quot;Go for drinks.&quot;;</span>
+<span class="fc bfc" id="L27" title="All 6 branches covered.">		} else if (weather.getTemperature() &gt; 30 &amp;&amp; !weather.isPrecipitation() &amp;&amp; spaceConstraint.isWithinCapacity()) {</span>
+<span class="fc" id="L28">			return &quot;Go to the beach or pool.&quot;;</span>
+		}
+
+<span class="fc" id="L31">		return &quot;No specific recommendation.&quot;;</span>
+	}
+
+	public static void main(String[] args) {
+		// Example data
+<span class="nc" id="L36">		Weather weather = new Weather(20, 70, false, false);</span>
+<span class="nc" id="L37">		HealthStatus healthStatus = new HealthStatus(true, true);</span>
+<span class="nc" id="L38">		SpaceConstraint spaceConstraint = new SpaceConstraint(5, 10);</span>
+
+<span class="nc" id="L40">		String recommendation = recommendActivity(weather, healthStatus, spaceConstraint);</span>
+
+<span class="nc" id="L42">		System.out.println(&quot;Recommendation: &quot; + recommendation);</span>
+<span class="nc" id="L43">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
