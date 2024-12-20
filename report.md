@@ -23,4 +23,5 @@ We chose the test cases that achieved the decision coverage and MC/DC coverage i
 * In testDecisionMCDC7, the expected output changed from "No specific recommendation." to "Go hiking." in test case 19 as a consequence to the last change of temperature.
 
 # Additional info
-The name of the Maven project wasn't changed from the template because doing so gave lots of errors, so to avoid them, we left the name as it was. We apologize if it causes any inconvenience.
+> The name of the Maven project wasn't changed from the template because doing so gave lots of errors, so to avoid them, we left the name as it was. We apologize if it causes any inconvenience.
+> The "after" branch mentioned in the Testing Management document is the main branch. The "before" branch contains all the "before" states that are mentioned in this document.
